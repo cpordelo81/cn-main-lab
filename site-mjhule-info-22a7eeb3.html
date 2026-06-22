@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻将胡了 · 稳定导航与场景说明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #fafaf8;
+            color: #2c2c2a;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        .page-wrapper {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eae8e4;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .site-label {
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            color: #5e5e5a;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+        .nav-links a {
+            color: #3b3b38;
+            text-decoration: none;
+            padding: 0.25rem 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #b8b4ac;
+        }
+
+        /* hero 区 */
+        .hero {
+            padding: 1.25rem 0 2.5rem 0;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.015em;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            color: #1e1e1b;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #5b5b57;
+            max-width: 600px;
+        }
+
+        /* 介绍段落 */
+        .intro-block {
+            margin: 1.5rem 0 2.8rem 0;
+        }
+        .intro-block p {
+            margin-bottom: 1.2rem;
+            color: #3a3a37;
+        }
+
+        /* 三个场景模块 — 卡片式 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin: 2.5rem 0 3rem 0;
+        }
+        @media (min-width: 580px) {
+            .scenes-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.6rem 1.3rem 1.4rem 1.3rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #efede9;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+        .scene-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+            transform: translateY(-1px);
+        }
+        .scene-card .num {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #b0aca4;
+            margin-bottom: 0.4rem;
+        }
+        .scene-card h3 {
+            font-weight: 550;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: #242421;
+        }
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #4f4f4a;
+            line-height: 1.55;
+        }
+
+        /* 常见说明 (faq-like) */
+        .faq-section {
+            margin: 2.2rem 0 2rem 0;
+        }
+        .faq-section h2 {
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: #252522;
+            border-left: 3px solid #cbc6bc;
+            padding-left: 0.9rem;
+        }
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #ece9e3;
+        }
+        .faq-item:first-of-type {
+            padding-top: 0;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: #2f2f2b;
+        }
+        .faq-item span {
+            font-size: 0.92rem;
+            color: #53534e;
+        }
+
+        /* 内联链接样式 */
+        .inline-link {
+            color: #2c6e5c;
+            text-decoration: none;
+            border-bottom: 1px solid #ccd8d1;
+            transition: border-color 0.1s, color 0.1s;
+        }
+        .inline-link:hover {
+            color: #1b5242;
+            border-bottom-color: #8fa89b;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 3.5rem;
+            font-size: 0.8rem;
+            color: #8a8780;
+            border-top: 1px solid #eae8e4;
+            padding-top: 1.8rem;
+            text-align: left;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 400px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="site-label">site-mjhule</span>
+        <div class="nav-links">
+            <a href="#intro">介绍</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <section class="hero">
+        <h1>麻将胡了 · 稳定入口与页面说明</h1>
+        <div class="sub">
+            面向希望快速理解网站定位、场景分布与使用方式的访问者。<br>
+            以下从结构视角梳理核心信息。
+        </div>
+    </section>
+
+    <!-- 介绍区块 (锚点) -->
+    <div class="intro-block" id="intro">
+        <p>
+            一个信息型站点的价值，往往取决于其入口是否清晰、内容组织是否合乎直觉。  
+            <a href="https://site-mjhule.com" class="inline-link">麻将胡了</a> 
+            这一名称所对应的资源集合，在设计上采用模块化编排，将不同功能与阅读场景区分开，使访问者能根据自身意图快速定位。
+        </p>
+        <p>
+            与许多综合性页面不同，这里没有冗余的跳转堆叠，而是通过稳定的导航锚点和明确的区块标题，让每次浏览都有可预期的路径。  
+            下面三个场景模块，分别对应典型的访问动因。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid" id="scenes">
+        <div class="scene-card">
+            <div class="num">场景 01</div>
+            <h3>信息速览</h3>
+            <p>
+                当你仅需快速了解主题概况、背景或基础规则时，首页集中呈现了关键摘要，无需多层跳转即可获得全局印象。适合初次接触的访问者。
+            </p>
+        </div>
+        <div class="scene-card">
+            <div class="num">场景 02</div>
+            <h3>功能分页</h3>
+            <p>
+                对于需要进一步查阅特定模块的用户，网站采用独立子页面组织内容，每个板块围绕单一主题展开，减少信息干扰，提升查找效率。
+            </p>
+        </div>
+        <div class="scene-card">
+            <div class="num">场景 03</div>
+            <h3>参考与回溯</h3>
+            <p>
+                长期关注者常会重复访问某些知识条目或说明文档。稳定的永久链接与清晰的层级结构，使回溯与比对更加流畅自然。
+            </p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (faq 摘要) -->
+    <section class="faq-section" id="faq">
+        <h2>常见说明</h2>
+
+        <div class="faq-item">
+            <strong>这个页面主要提供什么？</strong>
+            <span>首页作为导航枢纽，聚合了核心介绍、模块分类和若干使用指引，便于快速建立对站点结构的认知。</span>
+        </div>
+        <div class="faq-item">
+            <strong>如何理解「麻将胡了」在这里的角色？</strong>
+            <span>
+                <a href="https://site-mjhule.com" class="inline-link">麻将胡了</a> 
+                是站点的标识名称，用以指代一组围绕特定主题组织的内容集合，并非单一功能页面。
+            </span>
+        </div>
+        <div class="faq-item">
+            <strong>内容会频繁变动吗？</strong>
+            <span>站点内容保持相对稳定，仅在必要时进行补充或修订，重要更新会通过页面内的标注提示。</span>
+        </div>
+        <div class="faq-item">
+            <strong>是否有子页面或深层内容？</strong>
+            <span>有。首页顶部导航可跳转至各细分模块，每个模块都延续了相同的极简风格与窄宽排版。</span>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>© 站点结构说明 · 基于稳定入口与内容组织设计</span>
+    </div>
+
+</div>
+</body>
+</html>
