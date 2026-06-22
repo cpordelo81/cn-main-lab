@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麻将胡了 · 杂志专题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef0f3;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2d3136;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* 卡片系统 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2.2rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card-soft {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            background: #fafbfc;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: linear-gradient(145deg, #ffffff 0%, #f4f6f9 100%);
+            border-radius: 28px;
+            padding: 3rem 2.5rem 2.8rem;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
+            color: #6b7280;
+            background: #e8ebef;
+            padding: 0.25rem 0.8rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #1f2328;
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .accent {
+            color: #2f6b4d;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #4b5058;
+            max-width: 72%;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        /* 段落排版 */
+        .lead {
+            font-size: 1.05rem;
+            color: #3b4048;
+            margin-bottom: 1.4rem;
+        }
+
+        .section-title {
+            font-weight: 500;
+            font-size: 1.35rem;
+            letter-spacing: -0.2px;
+            color: #1f2328;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #b8c2cc;
+            padding-left: 1rem;
+        }
+
+        .text-block p {
+            margin-bottom: 1rem;
+        }
+
+        .text-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #1f3b4d;
+            text-decoration: none;
+            border-bottom: 1px solid #b3c2d0;
+            transition: border-color 0.1s, color 0.15s;
+            font-weight: 450;
+        }
+
+        .inline-link:hover {
+            color: #0f2a38;
+            border-bottom-color: #1f3b4d;
+        }
+
+        .divider {
+            margin: 1.8rem 0 1.6rem;
+            height: 1px;
+            background: #e2e5ea;
+            width: 100%;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .feature-item {
+            padding: 0.2rem 0;
+        }
+
+        .feature-item h3 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #1f2328;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item p {
+            color: #4b525b;
+            font-size: 0.95rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item dt {
+            font-weight: 500;
+            color: #24282e;
+            margin-bottom: 0.15rem;
+            font-size: 1rem;
+        }
+
+        .faq-item dd {
+            color: #555b64;
+            font-size: 0.95rem;
+            margin-left: 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.92rem;
+            color: #6b727c;
+            background: #f2f4f7;
+            border-radius: 40px;
+            padding: 0.8rem 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .footer-note a {
+            color: #1f3b4d;
+            text-decoration: none;
+            border-bottom: 1px solid #bcc6d1;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #1f3b4d;
+        }
+
+        .soft-highlight {
+            background: #f2f5f8;
+            padding: 0 0.3rem;
+            border-radius: 6px;
+            color: #1f2e3c;
+        }
+
+        .badge-subtle {
+            display: inline-block;
+            background: #eef1f6;
+            border-radius: 30px;
+            padding: 0.1rem 1rem;
+            font-size: 0.8rem;
+            color: #3f4a56;
+            letter-spacing: 0.2px;
+        }
+
+        .mt-1 {
+            margin-top: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HERO 横幅 (杂志开篇) -->
+    <div class="hero">
+        <span class="hero-tag">📰 专题 · 理解一个站点</span>
+        <h1>
+            从名字开始认识<br>
+            <span class="accent">麻将胡了</span>
+        </h1>
+        <p>
+            一个融合传统牌戏氛围与现代网页设计的内容集合地——不喧哗，但自有节奏。
+        </p>
+    </div>
+
+    <!-- 第一段：背景与初衷 -->
+    <div class="card">
+        <div class="section-title">为什么叫这个名字？</div>
+        <div class="text-block">
+            <p class="lead">
+                几年前，几位喜欢在周末摸几圈麻将的朋友，顺手注册了一个域名。他们发现“胡了”这个词，无论在牌桌还是生活里，都带着一种恰到好处的轻松感——不是大赢特赢，而是刚刚好完成一件事的愉悦。后来这个域名被保留下来，慢慢变成了一个分享界面思路、风格实验和随手笔记的地方。
+            </p>
+            <p>
+                网站取名「麻将胡了」，本身是一种自嘲式的亲切。它不标榜专业，也不故作高深，只是恰好用了这个让很多人会心一笑的名字。如果你在搜索栏里键入 <span class="soft-highlight">index-mjhule.com</span>，看到的将是一些关于布局、配色、交互的小尝试，以及创作者对“干净页面”的某种偏爱。
+            </p>
+        </div>
+    </div>
+
+    <!-- 第二段：三段自然介绍 用两列卡片呈现不同侧面 -->
+    <div class="grid-2">
+        <div class="card card-soft">
+            <div class="feature-item">
+                <h3>🎴 不止于牌戏</h3>
+                <p>
+                    虽然名字里带着麻将，但这里的内容和棋牌并无直接关系。更像是一个私人工作台——展示了一些 CSS 排版试验、字体搭配记录，以及响应式设计的碎片。偶尔也收录一些关于界面“呼吸感”的思考。
+                </p>
+            </div>
+        </div>
+        <div class="card card-soft">
+            <div class="feature-item">
+                <h3>📐 为浏览者设计</h3>
+                <p>
+                    每篇笔记都尽量保持最低的阅读负担：没有弹窗、没有大面积广告，连配色也偏向柔和的浅灰与白。你可以像翻一本薄薄的杂志一样，随意滑动，看到哪一页算哪一页。
+                </p>
+            </div>
+        </div>
+        <div class="card card-soft">
+            <div class="feature-item">
+                <h3>🌱 缓慢生长</h3>
+                <p>
+                    站点内容更新不算频繁，但每次变化都经过推敲。从字体选择到间距比例，都希望让访客觉得“舒服”——就像打完一圈牌，端起茶杯的那个瞬间。
+                </p>
+            </div>
+        </div>
+        <div class="card card-soft">
+            <div class="feature-item">
+                <h3>🔗 直接一点</h3>
+                <p>
+                    如果你好奇这个域名的实际模样，可以直接前往 <a href="https://index-mjhule.com" class="inline-link">麻将胡了</a> 看看。没有复杂的引导页，加载之后就是一目了然的内容排布。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第三段：FAQ 摘要 + 引用感 -->
+    <div class="card">
+        <div class="section-title">一些你可能想问的</div>
+        <dl class="faq-item">
+            <dt>这是一个博客吗？还是作品集？</dt>
+            <dd>两者都不完全是。它更接近一个“在线笔记本”——有些页面是完整的文章，有些只是一段代码片段或布局样本。没有严格分类，但读起来不会费力。</dd>
+        </dl>
+        <dl class="faq-item">
+            <dt>为什么叫“胡了”而不是“和了”？</dt>
+            <dd>因为顺口。“胡了”在口语里早已超越麻将本身，成为一种完成某事之后的小小感叹。这个域名想要传递的正是那种轻快的完成感。</dd>
+        </dl>
+        <dl class="faq-item">
+            <dt>网站会一直保持这个风格吗？</dt>
+            <dd>基调会延续：浅色、干净、克制。但具体页面会随着实验方向微调，比如这次就是杂志卡片式排版。每一版都在尝试新东西。</dd>
+        </dl>
+        <div class="badge-subtle mt-1">📬 如果你也喜欢安静的设计，或许会在这里多停留一会儿</div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <span>想直接看看？域名的首页就是它自己 —— </span>
+        <a href="https://index-mjhule.com">麻将胡了</a>
+        <span> · 没有花哨的预告，只有已经准备好的页面。</span>
+    </div>
+
+</div>
+</body>
+</html>
